@@ -1,4 +1,4 @@
-For executing test run command mvn crean test; 
+For executing test run command <b>@mvn crean test</b>; 
 <br>
 <br>
 Starting of the tests can be parametrised by additional parameters: 
