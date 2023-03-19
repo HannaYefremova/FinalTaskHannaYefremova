@@ -20,6 +20,7 @@
         <browserWidth>1920</browserWidth>
         <browserHeight>1080</browserHeight>
         <browser>CHROME</browser>
+        <threads>2</threads>
     </properties>
 
     <dependencies>
@@ -117,7 +118,7 @@
                     </systemPropertyVariables>
 
                     <parallel>classes</parallel>
-                    <threadCount>2</threadCount>
+                    <threadCount>${threads}</threadCount>
                     <perCoreThreadCount>true</perCoreThreadCount>
 
                 </configuration>

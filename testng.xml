@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="MyTestSuite">
+    <listeners>
+        <listener class-name="framework.listeners.TestListeners"/>
+    </listeners>
+    <test name="MyTest">
+        <classes>
+            <class name="ui.AddToCartTest"/>
+            <class name="ui.CheckoutTest"/>
+            <class name="ui.LanguagesTest"/>
+            <class name="ui.PopularProductsTest"/>
+            <class name="ui.PriceDropTest"/>
+            <class name="ui.RegistrationWithInvalidDataTest"/>
+            <class name="ui.RegistrationWithValidDataTest"/>
+            <class name="ui.SortingTest"/>
+            <class name="ui.SubCategoriesTest"/>
+            <class name="ui.SubscribeWithInvalidEmailTest"/>
+        </classes>
+    </test>
+</suite>
