@@ -1,4 +1,8 @@
-For executing test run command <b>"mvn clean test"</b>; 
+For executing test run command <b>
+
+'''
+mvn clean test
+'''
 <br>
 <br>
 Starting of the tests can be parametrised by additional parameters: 
