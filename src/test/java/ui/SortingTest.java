@@ -40,18 +40,18 @@ public class SortingTest extends BaseTest {
 
         productsPage.clickOnSortBy().clickOnDropdownItemByName(SortingTypes.PRICE_LOW_HIGH.getValueName());
         products = ProductsHelper.getAllProducts();
-        List<BigDecimal> productPriceSorted = ProductsHelper.getProductPrices(products);
+        List<BigDecimal> productPriceSorted = ProductsHelper.getSortedProductPrices(products);
         productPriceSorted.sort(Comparator.comparing(BigDecimal::doubleValue));
-        softAssertions.assertThat(ProductsHelper.getProductPrices(products))
+        softAssertions.assertThat(ProductsHelper.getSortedProductPrices(products))
                 .as("Products price is not sorted as expected.")
                 .containsExactlyElementsOf(productPriceSorted);
 
         productsPage.clickOnSortBy().clickOnDropdownItemByName(SortingTypes.PRICE_HIGH_LOW.getValueName());
         products = ProductsHelper.getAllProducts();
-        productPriceSorted = ProductsHelper.getProductPrices(products);
+        productPriceSorted = ProductsHelper.getSortedProductPrices(products);
         productPriceSorted.sort(Collections.reverseOrder());
 
-        softAssertions.assertThat(ProductsHelper.getProductPrices(products))
+        softAssertions.assertThat(ProductsHelper.getSortedProductPrices(products))
                 .as("Products price is not sorted as expected.")
                 .containsExactlyElementsOf(productPriceSorted);
 

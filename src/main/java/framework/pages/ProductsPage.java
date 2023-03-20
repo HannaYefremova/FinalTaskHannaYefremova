@@ -3,9 +3,7 @@ package framework.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
 
 public class ProductsPage extends BasePage {
@@ -23,8 +21,7 @@ public class ProductsPage extends BasePage {
         for (WebElement e : dropDownItems) {
             if (e.getText().equals(name)) {
                 e.click();
-                new WebDriverWait(BasePage.getWebDriver(), Duration.ofSeconds(20))
-                        .until(ExpectedConditions.invisibilityOfElementLocated(spinnerLocator));
+                BasePage.getWaiter().until(ExpectedConditions.invisibilityOfElementLocated(spinnerLocator));
                 return this;
             }
         }

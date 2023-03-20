@@ -22,12 +22,13 @@ public class CreateAccountPage extends BasePage {
 
     @Step("Set gender")
     public CreateAccountPage setGender(Genders gender) {
-        log.info("Set gender radio button to 'mr'.");
         switch (gender) {
             case MR:
+                log.info("Set gender radio button to 'mr'.");
                 find(genderMrRadioButtonLocator).click();
                 break;
             case MRS:
+                log.info("Set gender radio button to 'mrs'.");
                 find(genderMrsRadioButtonLocator).click();
                 break;
         }

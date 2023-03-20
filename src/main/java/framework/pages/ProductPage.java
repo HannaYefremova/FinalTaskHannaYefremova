@@ -5,7 +5,6 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.math.BigDecimal;
 import java.time.Duration;
@@ -38,8 +37,7 @@ public class ProductPage extends BasePage {
                 log.error("An exception has occurred while wait for next button click.");
             }
             button.click();
-            new WebDriverWait(BasePage.getWebDriver(), Duration.ofSeconds(20))
-                    .withTimeout(Duration.ofSeconds(5));
+            BasePage.getWaiter().withTimeout(Duration.ofSeconds(5));
         }
         return this;
     }
@@ -50,8 +48,7 @@ public class ProductPage extends BasePage {
     }
 
     public CartModalComponent getModalWindow() {
-        new WebDriverWait(BasePage.getWebDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.visibilityOfElementLocated(modalWindowLocator));
+        BasePage.getWaiter().until(ExpectedConditions.visibilityOfElementLocated(modalWindowLocator));
         return new CartModalComponent(find(modalWindowLocator));
     }
 
@@ -80,8 +77,7 @@ public class ProductPage extends BasePage {
     }
 
     public ShoppingCardPage clickOnTheProceedToCheckoutButton() {
-        new WebDriverWait(BasePage.getWebDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.visibilityOfElementLocated(proceedToCheckoutButtonLocator));
+        BasePage.getWaiter().until(ExpectedConditions.visibilityOfElementLocated(proceedToCheckoutButtonLocator));
         find(proceedToCheckoutButtonLocator).click();
         return new ShoppingCardPage();
     }

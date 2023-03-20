@@ -6,7 +6,9 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 @Log4j2
@@ -40,6 +42,10 @@ public class BasePage {
         } catch (NoSuchElementException e) {
             return false;
         }
+    }
+
+    public static WebDriverWait getWaiter() {
+        return new WebDriverWait(BasePage.getWebDriver(), Duration.ofSeconds(20));
     }
 
     public void selectByText(By selectLocator, String text) {

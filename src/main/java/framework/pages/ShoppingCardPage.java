@@ -2,10 +2,8 @@ package framework.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.math.BigDecimal;
-import java.time.Duration;
 
 
 public class ShoppingCardPage extends BasePage {
@@ -13,8 +11,7 @@ public class ShoppingCardPage extends BasePage {
     private final By proceedToCheckoutButtonLocator = By.xpath("//div[@class='checkout cart-detailed-actions js-cart-detailed-actions card-block']//a");
 
     public BigDecimal getTotalPrice() {
-        new WebDriverWait(BasePage.getWebDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.visibilityOfElementLocated(totalValueLocator));
+        BasePage.getWaiter().until(ExpectedConditions.visibilityOfElementLocated(totalValueLocator));
         return new BigDecimal(find(totalValueLocator).getText().substring(1));
     }
 

@@ -39,6 +39,18 @@ public class ProductsHelper {
         return result;
     }
 
+    public static List<BigDecimal> getSortedProductPrices(List<ProductComponent> productComponents) {
+        List<BigDecimal> result = new ArrayList<>();
+        for (ProductComponent productComponent : productComponents) {
+            if (productComponent.getRegularPrice() != null) {
+                result.add(productComponent.getRegularPrice());
+            } else {
+                result.add(productComponent.getPrice());
+            }
+        }
+        return result;
+    }
+
     public static List<BigDecimal> getProductRegularPrices(List<ProductComponent> productComponents) {
         List<BigDecimal> result = new ArrayList<>();
         for (ProductComponent productComponent : productComponents) {

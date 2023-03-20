@@ -5,10 +5,8 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.math.BigDecimal;
-import java.time.Duration;
 
 @Log4j2
 public class PersonalInformationPage extends BasePage {
@@ -133,8 +131,7 @@ public class PersonalInformationPage extends BasePage {
     @Step("Click on the 'My carrier' option button")
     public PersonalInformationPage clickMyCarrierOptionButton() {
         log.info("Click on the 'My carrier' option button");
-        new WebDriverWait(BasePage.getWebDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.visibilityOfElementLocated(myCarrierOptionLocator));
+        BasePage.getWaiter().until(ExpectedConditions.visibilityOfElementLocated(myCarrierOptionLocator));
         find(myCarrierOptionLocator).click();
         return this;
     }

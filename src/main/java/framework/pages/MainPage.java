@@ -8,9 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 @Log4j2
 public class MainPage extends BasePage {
@@ -46,7 +43,6 @@ public class MainPage extends BasePage {
         return find(underEmailTextLocator).getText();
     }
 
-    @Step("Get Subscribe button element")
     public WebElement getSubscribeButton() {
         log.info("Get Subscribe button element");
         return find(subscribeButtonLocator);
@@ -56,8 +52,7 @@ public class MainPage extends BasePage {
     public void waitForPageLoad() {
         log.info("Wait for loader hide");
         WebElement loader = find(loaderLocator);
-        new WebDriverWait(BasePage.getWebDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.invisibilityOf(loader));
+        BasePage.getWaiter().until(ExpectedConditions.invisibilityOf(loader));
     }
 
     @Step("Switch to another iframe")
@@ -82,8 +77,7 @@ public class MainPage extends BasePage {
     @Step("Input search text and press enter")
     public SearchResultPage searchTextAndPressEnter(String text) {
         log.info("Input search text and press enter");
-        new WebDriverWait(BasePage.getWebDriver(), Duration.ofSeconds(20))
-                .until(ExpectedConditions.visibilityOfElementLocated(searchFieldLocator));
+        BasePage.getWaiter().until(ExpectedConditions.visibilityOfElementLocated(searchFieldLocator));
         WebElement searchElement = find(searchFieldLocator);
         searchElement.sendKeys(text);
         searchElement.sendKeys(Keys.ENTER);

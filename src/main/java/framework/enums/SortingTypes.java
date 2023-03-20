@@ -1,8 +1,10 @@
 package framework.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public enum SortingTypes {
     NAME_A_Z("Name, A to Z"),
     NAME_Z_A("Name, Z to A"),
@@ -10,8 +12,4 @@ public enum SortingTypes {
     PRICE_HIGH_LOW("Price, high to low");
 
     private final String valueName;
-
-    SortingTypes(String valueName) {
-        this.valueName = valueName;
-    }
 }

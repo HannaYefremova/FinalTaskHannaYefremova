@@ -1,8 +1,10 @@
 package framework.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public enum SubMenuItems {
     MEN("MEN"),
     WOMEN("WOMEN"),
@@ -10,8 +12,4 @@ public enum SubMenuItems {
     HOMEACCESSORIES("HOME ACCESSORIES");
 
     private final String valueName;
-
-    SubMenuItems(String valueName) {
-        this.valueName = valueName;
-    }
 }
