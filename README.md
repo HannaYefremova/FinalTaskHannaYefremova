@@ -1,8 +1,5 @@
-Selenium tests for site
+### Selenium tests for site [Presta Shop](https://demo.prestashop.com/)
 
-```
-https://demo.prestashop.com/
-```
 
 1. For executing test run command:
 
